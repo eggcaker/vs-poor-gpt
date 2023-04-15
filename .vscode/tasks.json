@@ -1,0 +1,66 @@
+// See https://go.microsoft.com/fwlink/?LinkId=733558
+// for the documentation about the tasks.json format
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "npm:watch",
+			"type": "npm",
+			"script": "watch",
+			"isBackground": true,
+			"presentation": {
+				"echo": true,
+				"reveal": "silent",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": {
+				"owner": "typescript",
+				"source": "ts",
+				"applyTo": "closedDocuments",
+				"fileLocation": "absolute",
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+)-(?:(\\d+):(\\d+))?\\s+(error|warning|info)\\s+(TS\\d+)\\s*:\\s*(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"endLine": 4,
+					"endColumn": 5,
+					"severity": 6,
+					"code": 7,
+					"message": 8
+				},
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "Starting .*compilation",
+					"endsPattern": ".*(\\d+)\\s*errors?"
+				}
+			}
+		},
+		{
+			"type": "npm",
+			"script": "watch-tests",
+			"problemMatcher": "$tsc-watch",
+			"isBackground": true,
+			"presentation": {
+				"reveal": "never",
+				"group": "watchers"
+			},
+			"group": "build"
+		},
+		{
+			"label": "tasks: watch-tests",
+			"dependsOn": [
+				"npm: watch",
+				"npm: watch-tests"
+			],
+			"problemMatcher": []
+		}
+	]
+}
