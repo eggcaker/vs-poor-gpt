@@ -29,9 +29,14 @@ Sure, here are the user names sorted in alphabetical order:
  3. sarahsmith9876
 
 
+
+https://user-images.githubusercontent.com/21374/232218397-4f8efbe5-d6f4-4b23-9920-3cc39fef5501.mp4
+
+
+
 ## Install 
 1. First make the poor-auto-gpt all set up and running on your machine.
-2. You should create an excutable file named `gpt.bat`(can change in extension configuration late) in your PATH.
+2. You should create an excutable file named `gpt.bat`(you can change in extension configuration later) in your PATH.
 3. Compile extension
    ```sh
    vsce package
