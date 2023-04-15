@@ -1,9 +1,10 @@
 import * as vscode from 'vscode';
 import { spawn } from 'child_process';
 
-
+const LINE_SEP = 'POOR_GPT_SEP';
 
 export function activate(context: vscode.ExtensionContext) {
+    console.log("start activted");
     let disposable = vscode.commands.registerCommand('vs-poor-gpt.runPoorGPT', async () => {
         const editor = vscode.window.activeTextEditor;
         if (!editor) {
@@ -18,10 +19,24 @@ export function activate(context: vscode.ExtensionContext) {
         if (selection.isEmpty) {
             input = document.lineAt(selection.active.line).text;
         } else {
-            input = document.getText(selection);
+            const selectedLines = [];
+
+            for (let i = selection.start.line; i <= selection.end.line; i++) {
+                selectedLines.push(document.lineAt(i).text);
+            }
+
+            input = selectedLines.join(LINE_SEP);
         }
 
         const output = await runPoorGPT(input);
+
+        /*const postionGptPrompt = document.lineAt(selection.active.line).range.start;
+
+        editor.edit(editBuilder => {
+            editBuilder.insert(postionGptPrompt, `GPT> `);
+        });
+        */
+
         const position = document.lineAt(selection.active.line).range.end;
         const insertPosition = position.with(position.line + 1, 0);
 
@@ -35,7 +50,8 @@ export function activate(context: vscode.ExtensionContext) {
 
 async function runPoorGPT(input: string): Promise<string> {
     return new Promise((resolve, reject) => {
-        const command = spawn('gpt', [input]);
+        const gptPath = vscode.workspace.getConfiguration('vs-poor-gpt').get('gptPath') as string;
+        const command = spawn(gptPath, [input]);
 
         let output = '';
         command.stdout.on('data', (data: Buffer) => {

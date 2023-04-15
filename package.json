@@ -2,24 +2,38 @@
   "name": "vs-poor-gpt",
   "displayName": "vs-poor-gpt",
   "description": "Call ChatGPT from VsCode without API",
+  "repository": "https://github.com/eggcaker/vs-poor-gpt",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.77.0"
   },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onCommand:vs-poor-gpt.runPoorGPT"
-  ],
+  "categories": ["Other"],
+  "activationEvents": ["onCommand:vs-poor-gpt.runPoorGPT"],
   "main": "./dist/extension.js",
   "contributes": {
+    "keybindings": [
+      {
+        "command": "vs-poor-gpt.runPoorGPT",
+        "key": "ctrl+;",
+        "mac": "cmd+;"
+      }
+    ],
     "commands": [
       {
         "command": "vs-poor-gpt.runPoorGPT",
-        "title": "Run PoorGPT Command"
+        "title": "Run Poor GPT"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Poor GPT",
+      "properties": {
+        "vs-poor-gpt.gptPath": {
+          "type": "string",
+          "default": "gpt.bat",
+          "description": "Path to the gpt command."
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
