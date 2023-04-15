@@ -1,47 +1,42 @@
-# vs-poor-gpt README
+# vs-poor-gpt
 
+A vscode extension for [poor gpt](https://github.com/eggcaker/poor-auto-gpt).
 
-## Known Issues
+## Install 
+1. First make the poor-auto-gpt all set up and running on your machine.
+2. You should create an excutable file named `gpt.bat`(can change in extension configuration late) in your PATH.
+3. Compile extension
+   ```sh
+   vsce package
+   ```
+4. Install extension from more menu of extesnions pannel.
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
-generate 3 fake emails
+## Usage
 
+### Simple
+1. Make ChatGPT website running on your chrome as poor-auto-gpt. 
+2. Open a file in vscode.
+3. Type some question to ChatGPT and press `Ctrl+Shift+;` to send it. 
+4. The result will be shown in below the current line.
 
-## Release Notes
+### Multi-line
+If you want to send multi-line question, you can select the lines and press `Ctrl+Shift+;` to send it.
+The result will be shown in below the last line of the selected lines.
 
-Users appreciate release notes as you update your extension.
+## Configuration
 
-### 1.0.0
+### GPT command path  
+- `vs-poor-gpt.gptPath`: The path of `gpt.bat` file. Default is `gpt.bat`.
 
-Initial release of ...
+### Keybinding
+```json
+  {
+	"key": "ctrl+shift+;",
+	"command": "vs-poor-gpt.runPoorGPT",
+	"when": "editorTextFocus"
+  }	
+```
+  
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
 **Enjoy!**
