@@ -28,20 +28,18 @@ export function activate(context: vscode.ExtensionContext) {
             input = selectedLines.join(LINE_SEP);
         }
 
-        const output = await runPoorGPT(input);
-
-        /*const postionGptPrompt = document.lineAt(selection.active.line).range.start;
-
-        editor.edit(editBuilder => {
-            editBuilder.insert(postionGptPrompt, `GPT> `);
-        });
-        */
-
         const position = document.lineAt(selection.active.line).range.end;
+
+        const postionGptPrompt = position.with(position.line, 0);
+        editor.edit(editBuilder => {
+            editBuilder.insert(postionGptPrompt, `GPT>> `);
+        });
+
+        const output = await runPoorGPT(input);
         const insertPosition = position.with(position.line + 1, 0);
 
         editor.edit(editBuilder => {
-            editBuilder.insert(insertPosition, `\n${output}`);
+            editBuilder.insert(insertPosition, `\n\n${output}\n<<GPT`);
         });
     });
 
