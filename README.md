@@ -4,38 +4,12 @@ A vscode extension for [poor gpt](https://github.com/eggcaker/poor-auto-gpt).
 
 ## Demo 
 
-GPT> generate 3 fake emails for me 
-
-Sure, here are three examples of fake email addresses:
-
- 1. johndoe1234@emailprovider.com [johndoe1234@emailprovider.com]
- 2. sarahsmith9876@webmailservice.net [sarahsmith9876@webmailservice.net]
- 3. bob.jones7890@freemailprovider.org [bob.jones7890@freemailprovider.org]
-
-GPT> give me all user name above emails 
-
-Certainly! Here are the user names for each of the email addresses I provided:
-
- 1. johndoe1234
- 2. sarahsmith9876
- 3. bob.jones7890
- 
-GPT> sort all user names above 
-
-Sure, here are the user names sorted in alphabetical order:
-
- 1. bob.jones7890
- 2. johndoe1234
- 3. sarahsmith9876
-
-
 
 https://user-images.githubusercontent.com/21374/232218397-4f8efbe5-d6f4-4b23-9920-3cc39fef5501.mp4
 
 
-
 ## Install 
-1. First make the poor-auto-gpt all set up and running on your machine.
+1. First make the [poor-auto-gpt](https://github.com/eggcaker/poor-auto-gpt) all set up and cli command can running on your machine.
 2. You should create an excutable file named `gpt.bat`(you can change in extension configuration later) in your PATH.
 3. Compile extension
    ```sh
