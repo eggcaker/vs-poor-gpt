@@ -7,13 +7,20 @@
   "engines": {
     "vscode": "^1.77.0"
   },
-  "categories": ["Other"],
-  "activationEvents": ["onCommand:vs-poor-gpt.runPoorGPT"],
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
     "keybindings": [
       {
         "command": "vs-poor-gpt.runPoorGPT",
+        "key": "ctrl+shft+;",
+        "mac": "cmd+shift+;"
+      },
+      {
+        "command": "vs-poor-gpt.runClaudeGPT",
         "key": "ctrl+;",
         "mac": "cmd+;"
       }
@@ -22,6 +29,10 @@
       {
         "command": "vs-poor-gpt.runPoorGPT",
         "title": "Run Poor GPT"
+      },
+{
+        "command": "vs-poor-gpt.runClaudeGPT",
+        "title": "Run Clauded GPT"
       }
     ],
     "configuration": {
@@ -31,6 +42,11 @@
           "type": "string",
           "default": "gpt.bat",
           "description": "Path to the gpt command."
+        },
+        "vs-poor-gpt.claudePath": {
+          "type": "string",
+          "default": "claude.bat",
+          "description": "Path to the claude command."
         }
       }
     }
