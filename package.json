@@ -3,7 +3,7 @@
   "displayName": "vs-poor-gpt",
   "description": "Call ChatGPT from VsCode without API",
   "repository": "https://github.com/eggcaker/vs-poor-gpt",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.77.0"
   },
@@ -23,6 +23,11 @@
         "command": "vs-poor-gpt.runClaudeGPT",
         "key": "ctrl+;",
         "mac": "cmd+;"
+      },
+      {
+        "command": "vs-poor-gpt.runCustomGPT",
+        "key": "ctrl+alt+;",
+        "mac": "cmd+altt+;"
       }
     ],
     "commands": [
@@ -30,9 +35,13 @@
         "command": "vs-poor-gpt.runPoorGPT",
         "title": "Run Poor GPT"
       },
-{
+      {
         "command": "vs-poor-gpt.runClaudeGPT",
         "title": "Run Clauded GPT"
+      },
+      {
+        "command": "vs-poor-gpt.runCustomGPT",
+        "title": "Run Custom GPT"
       }
     ],
     "configuration": {
@@ -47,6 +56,11 @@
           "type": "string",
           "default": "claude.bat",
           "description": "Path to the claude command."
+        },
+        "vs-poor-gpt.customPath": {
+          "type": "string",
+          "default": "custom.bat",
+          "description": "Path to the custom command."
         }
       }
     }
